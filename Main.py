@@ -193,7 +193,7 @@ async def on_command_error(ctx, error):
     elif isinstance(error, UserInBlacklist):
         embed = discord.Embed(
             title="Oh no.",
-            description=f"It looks like you have been blacklisted from using Enchanted. You can join the [Support Server](https://google.com/) and appeal by opening a ticket.",
+            description=f"It looks like you have been blacklisted from using Enchanted. You can join the [Support Server](https://discord.com/) and appeal by opening a ticket.",
             color=Config.ERRORCOLOR
         )
         await ctx.send(embed=embed)
@@ -242,7 +242,7 @@ async def on_command_error(ctx, error):
 
 @tasks.loop(seconds=30)
 async def status_set():
-    # Main # 
+    # Main #
     statuses = ["heavenly beings smile", "flutters of the night", "the sky twinkle", "trees bend", "the fairies dance",
                 "leaves fall", "every star", "grass wave", "bees buzz", "stardust sprinkle", "tadpoles play",
                 "waterfalls"]
@@ -272,7 +272,7 @@ async def check_blacklist(ctx):
     if Config.BLACKLIST.find_one({'user_id': ctx.author.id}) is not None:
         embed = discord.Embed(
             title="Oh no.",
-            description=f"It looks like you have been blacklisted from using Enchanted. You can join the [Support Server](https://google.com/) and appeal by opening a ticket.",
+            description=f"It looks like you have been blacklisted from using Enchanted. You can join the [Support Server](https://discord.com/) and appeal by opening a ticket.",
             color=Config.ERRORCOLOR
         )
         await ctx.send(embed=embed)

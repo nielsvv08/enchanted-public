@@ -167,7 +167,7 @@ async def tutorial(bot, ctx, id, new):
         title=title,
         description=desc
                     + f"For more info check the `{prefix}wiki` and `{prefix}help` command or join our [**Discord**]"
-                      f"(https://google.com/) server.\n\n"
+                      f"(https://discord.com/) server.\n\n"
                     + f"Try doing a `{prefix}boss` to get familiar with the controls :smile:\n\n"
                     + f"**Good luck on your journey, champion!**\n\"*{Battle_Utils.quotes()}\"*",
         color=Config.MAINCOLOR)
