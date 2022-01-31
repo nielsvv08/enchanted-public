@@ -1,0 +1,12 @@
+Main
+- Change MongoDB secret in Config.py 
+- Change Main/Test bot token in Config.py 
+- Update owner/channel IDs in Config.py 
+- Change emojis (server) in Config.py
+- Change Discord / TopGG URLs (currently set to https://google.com/)
+- Change Top.GG tokens in Cogs/TopGG.py
+
+Run
+- pip install pipenv 
+- pipenv install 
+- pipenv run python Main.py
