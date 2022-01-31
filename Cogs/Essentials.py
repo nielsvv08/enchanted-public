@@ -23,15 +23,15 @@ class Essentials(commands.Cog):
 
     @commands.command(name='discord')
     async def discord_link(self, ctx):
-        embed = discord.Embed(description="[**Click here to join the community!**](https://google.com/)",
+        embed = discord.Embed(description="[**Click here to join the community!**](https://discord.com/)",
                               color=Config.MAINCOLOR)
         embed.set_image(url="https://i.imgur.com/82uVAPe.png")
         await ctx.send(embed=embed)
 
     @commands.command(name='vote', aliases=['daily', 'weekly'])
     async def vote_link(self, ctx):
-        # embed=discord.Embed(description="[**Click here to vote for the bot**](https://google.com/", color = Config.MAINCOLOR)
-        embed=discord.Embed(description="**[Click here to vote for the bot!](https://google.com/)**\n**[Click here to vote for the server!](https://google.com/)**\nYou can vote every 12 hours.", color = Config.MAINCOLOR)
+        # embed=discord.Embed(description="[**Click here to vote for the bot**](https://top.gg/", color = Config.MAINCOLOR)
+        embed=discord.Embed(description="**[Click here to vote for the bot!](https://top.gg/)**\n**[Click here to vote for the server!](https://top.gg/)**\nYou can vote every 12 hours.", color = Config.MAINCOLOR)
         embed.set_image(url="https://i.imgur.com/82uVAPe.png")
         await ctx.send(embed=embed)
 
@@ -162,7 +162,7 @@ class Essentials(commands.Cog):
     @commands.command(aliases=["statistics"])
     async def stats(self, ctx):
         """Returns an embed containing some basic statistics."""
-        
+
         prefix = Utils.fetch_prefix(ctx)
 
         embed = discord.Embed(
@@ -174,7 +174,7 @@ class Essentials(commands.Cog):
             + f"**Uptime**: {self.get_uptime()}\n"
             + f"**Server Count**: {len(self.bot.guilds)} ({self.bot.shard_count} shards)\n"
             + f"**Saved Accounts**: {Config.USERS.count_documents({})}\n"
-            + f"**Discord**: <https://google.com/>",
+            + f"**Discord**: <https://discord.com/>",
         )
 
         await ctx.send(embed=embed)
@@ -239,7 +239,7 @@ class Essentials(commands.Cog):
                 reaction, user = await self.bot.wait_for('reaction_add', check=check, timeout=30.0)
                 for _class in cl:
                     if _class['emote'] == str(reaction):
-                        account["spells"].append({'class': _class["name"], 'spells': [0, 1]}) 
+                        account["spells"].append({'class': _class["name"], 'spells': [0, 1]})
                         Config.USERS.update_one({'user_id': ctx.author.id}, {'$set': {'spells': account["spells"]}})
                         await msg.clear_reactions()
                         embed = discord.Embed(
@@ -303,7 +303,7 @@ class Essentials(commands.Cog):
             await message.edit(content=None, embed=embed)
 
             await self.remove_reactions(message)
-            return 
+            return
 
         _class = Utils.get_class(config["class"])
         if _class is None:
@@ -331,7 +331,7 @@ class Essentials(commands.Cog):
 
         if payload.guild_id not in [615841347944841226, 736315344854974535]:
             return
-        
+
         if payload.emoji.name != "🔄":
             return
 
@@ -356,16 +356,16 @@ class Essentials(commands.Cog):
             await message.add_reaction(refresh_emoji)
         except (discord.Forbidden, discord.HTTPException):
             pass
-    
+
     @commands.command()
     async def wikiembed(self, ctx, *, content: str=None):
         if ctx.author.id not in Config.OWNERIDS:
             return
-        
+
         if content != "season":
             if content not in Config.ALL_CLASSES:
                 return await ctx.send("Can't find that class")
-        
+
         msg = await ctx.send("Wiki")
 
         account = {"class": content, "message": msg.id, "channel": ctx.channel.id}
@@ -412,16 +412,16 @@ class Essentials(commands.Cog):
     @commands.command()
     async def claim(self, ctx):
         return
-        
+
         msg, account = await Utils.get_account_lazy(self.bot, ctx, ctx.author.id)
         if account is None:
             return
-        
+
         for cosmetic in account['cosmetics']:
             if cosmetic['type'] == "color":
                 if cosmetic["name"] == "OG Embed Color":
                     return await ctx.send("You already claimed your reward!")
-        
+
         Config.USERS.update_one({'user_id': ctx.author.id}, {'$push': {'cosmetics': {'type': 'color', 'name': "OG Embed Color", 'value': "0x6A00FF"}}, '$inc': {'crowns': 500}})
         embed = discord.Embed(
             title="Full Release - Rewards claimed!",
@@ -435,7 +435,7 @@ class Essentials(commands.Cog):
     @commands.command()
     async def tutorial(self, ctx):
         account = Config.USERS.find_one({'user_id': ctx.author.id})
-        if account is not None: 
+        if account is not None:
             await Utils.tutorial(self.bot, ctx, ctx.author.id, False)
         else:
             await Utils.tutorial(self.bot, ctx, ctx.author.id, True)
@@ -444,7 +444,7 @@ class Essentials(commands.Cog):
     async def sudo(self, ctx: Context, user: discord.User = None, *, text: str = None):
         """Uses the bot as a user"""
 
-        
+
         if ctx.author.id not in Config.OWNERIDS:
             return
 
@@ -470,4 +470,4 @@ class Essentials(commands.Cog):
         await actx.command.invoke(actx)
 
 def setup(bot):
-    bot.add_cog(Essentials(bot))    
+    bot.add_cog(Essentials(bot))

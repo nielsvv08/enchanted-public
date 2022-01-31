@@ -54,7 +54,7 @@ class Tournament(commands.Cog):
         else:
             embed = discord.Embed(color=Config.EVENTCOLOR, title="Invalid server",
                                   description=f"You can only run this command in the tournament server."
-                                              f"\n[You can join the server here!](https://google.com/)")
+                                              f"\n[You can join the server here!](https://discord.com/)")
             await ctx.send(content=ctx.author.mention, embed=embed)
             return False
 
@@ -82,7 +82,7 @@ class Tournament(commands.Cog):
         # Display the current event info
         embed = discord.Embed(color=Config.EVENTCOLOR, title="Enchanted Events",
                               description=f"Current Event: **Spring Tournament**\n[Join the Tournament Server]"
-                                          f"(https://google.com/)",
+                                          f"(https://discord.com/)",
                               timestamp=self.event_start)
         embed.set_thumbnail(url=self.event_image)
 

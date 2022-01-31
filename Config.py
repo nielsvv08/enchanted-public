@@ -360,7 +360,7 @@ WIKI = [{'name': "Spells", 'link': "wiki/spells", 'pages': [
                            "\n__Special Perks__\n> Donations > $0: **Donator-only crown title**\n> Donations > $5:  "
                            "**Donator-only crown embed thumbnail**\n> Donations > $10: **\"Special\" Role**\n> "
                            "Donations > $20: **Beta access**\n\nTo donate (PayPal) please go to our "
-                           "[**Discord**](https://google.com/) server and *__open a support ticket!__*"}]},
+                           "[**Discord**](https://discord.com/) server and *__open a support ticket!__*"}]},
     {'name': "Seasons", 'link': "wiki/pvp",
      'pages': [{'title': "Season Resets",
                 'content': "Every reset, your **power**" + EMOJI['power'] + "would be reduced to the start of their "
