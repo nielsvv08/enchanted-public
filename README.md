@@ -23,5 +23,24 @@ $ pipenv install
 $ pipenv run python Main.py
 ```
 
-# Credits
-`FILL ME IN!`
+# Credits <3
+### Owner
+- Niels#7119
+
+### Developers
+- kaj#0001
+- Larvey#0001
+- Futuristick#7276
+- BLOODWIING#3340
+- Greenfoot5#2535
+
+### Artists
+- BLOODWIING#3340
+- Senny#0231
+- HopeDesigns#7903
+
+### Other (balance, moderating, testing)
+- Found at the bottom of the memorial
+
+# Memorial
+[Link to the memorial on Notion](https://bloodwiing.notion.site/Enchanted-the-Memorial-a1dd4befb1ca41168565fa48e1ea0722)
